@@ -1,0 +1,364 @@
+body, html {
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'cacas';
+    src: url('/fonts/Heavitas.ttf');
+}
+
+* {
+    font-family: 'cacas', Arial;
+}
+
+.background-color {
+    background: linear-gradient(#fcfff5, #fff);
+}
+
+#parte1 {
+    padding: 25px;
+    padding-top: 45px;
+    background-image: url("/images/mocinha.png");
+    /*background-size: 65%;*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*background-position: right;*/
+    /*background-position-y: 35px;*/
+    background-position-x: calc(100% + 70%);
+    position: relative;
+}
+
+#parte1 h1 {
+    position: absolute;
+    z-index: 10;
+}
+
+.segredo {
+    position: absolute;
+    width: 66%;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+}
+
+#parte2 {
+    padding: 25px;
+    margin-top: -20px;
+}
+
+.autoestima {
+    width: 85%;
+}
+
+.foto-moca {
+    /*float: right;*/
+    /*transform: translate();*/
+    position: absolute;
+    right: -70px;
+    height: 80vh;
+    top: 45px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.pink-border {
+    color: #ef3487;
+    z-index: 1000;
+}
+
+#parte1 ul.vantagens {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 40vw;
+}
+
+ul.vantagens {
+    list-style: none;
+}
+
+ul.vantagens li {
+    white-space: nowrap;
+}
+
+.check {
+    width: 25px;
+    margin-right: 10px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+#parte1 ul.vantagens li {
+    color: #1f9b1f;
+}
+
+.btn-comprar-agora {
+    background: linear-gradient(#369b2d, #4ccc21);
+    color: white;
+    border-radius: 15px;
+    height: 50px;
+    width: 100%;
+    border: none;
+    box-shadow: 0px 0px 5px 3px rgba(227, 255, 213, 0.3);
+    font-size: 20px;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+        display: none;
+    } 50% {
+        transform: scale(1.06);
+        display: inline;
+    } 100% {
+        transform: scale(1);
+    }
+}
+
+.bounce {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+}
+
+.garantias {
+    width: 80%;
+}
+
+.calcinha-detalhada {
+    width: 100%;
+}
+
+.compra_segura {
+    width: 100%;
+}
+
+.cintura {
+    width: 100%;
+}
+
+.clientes_falando {
+    width: 100%;
+}
+
+.prova_social {
+    border-radius: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border: 3px solid #ef3487;
+}
+
+.calcinha_unha {
+    width: 100%;
+}
+
+.antes_depois {
+    width: 100%;
+}
+
+.box-produto {
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    position: relative;
+}
+
+.img-produto {
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+
+#parte8 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(#7ffb96, #218534);
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+/*#parte8::before {*/
+/*    content: "a";*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 80%;*/
+/*    background-color: green;*/
+/*}*/
+
+.estrelas {
+    width: 130px;
+}
+
+.fake-preco {
+    right: 15%;
+    font-size: 25px;
+    position: absolute;
+    text-decoration: line-through;
+}
+
+.preco {
+    color: #4cac27;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.box-produto::after {
+    content: ' ';
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: url("/images/promo-1.png");
+    background-size: cover;
+
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+}
+
+.box-produto-2::after {
+    content: ' ';
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: url("/images/promo-2.png");
+    background-size: cover;
+
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+}
+
+.vsl_imagem {
+    width: 100%;
+}
+
+#vsl {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.perguntas_frequentes {
+    width: 100%;
+}
+
+#parte11 h3 {
+    font-size: 16px;
+}
+
+#parte11 img {
+    width: 25px;
+    transform: rotate(180deg);
+}
+
+#parte11[data-open=true] img {
+    transform: rotate(0deg);
+}
+
+.title-ask {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ask {
+    border-bottom: 3px solid black;
+}
+
+.resposta {
+    height: 0px;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+.ask-closed {
+    height: 0px !important;
+}
+
+.dark {
+    transition: opacity 0.4s ease;
+    display: none;
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Reduzi a opacidade para obter o efeito de vidro embaçado */
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px); /* Adicione um filtro de desfoque para o efeito de vidro embaçado */
+    justify-content: center;
+}
+
+.card {
+    margin-top: 45px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.18);
+    width: 90%;
+    height: min-content;
+}
+
+.produto-choose {
+    width: 40%;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #e0e0e0;
+    padding: 10px;
+    text-align: center;
+}
+
+.produto-choose.active, .btn-size.active {
+    box-shadow: 0px 0px 0px 3.5px #ef3487;
+}
+
+.btn-size.active {
+    background-color: #ef3487;
+    color: white;
+    border-color: white;
+}
+
+.produto-choose-img {
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.btn-size {
+    padding: 0px;
+    min-width: 37.5px;
+    max-width: 37.5px;
+    min-height: 37.5px;
+    max-height: 37.5px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: white;
+    text-align: center;
+    color: black;
+}
