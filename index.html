@@ -50,7 +50,7 @@
                 <p style="color: #FF348E;">Promoção termina em</p>
                 <p style="color: #FF348E; font-size: 30px; line-height: 0px; transform: scale(2) translateX(25%);"><span id="horas1">00</span>:<span id="minutos1"></span>:<span id="segundos1"></span></p>
             </div>
-            <a href="#box-produto-2">
+            <a href="#box-produto-2" onclick="openDelayed()">
                 <button class="btn-comprar-agora bounce" style="margin-top: 15px;margin-bottom: 30px;">Comprar agora</button>
             </a>
             <img src="/images/garantias.png" class="garantias">
@@ -64,7 +64,7 @@
                 <li><img class="check" src="/images/check.png" />PREENCHIMENTO REMOVÍVEL</li>
                 <li><img class="check" src="/images/check.png" />TECIDO NÃO ENROLA</li>
             </ul>
-            <a href="#box-produto-2">
+            <a href="#box-produto-2" onclick="openDelayed()">
                 <button class="btn-comprar-agora bounce" style="margin-top: 30px;margin-bottom: 30px;">Comprar agora</button>
             </a>
         </div>
@@ -74,7 +74,7 @@
         <div id="parte4">
             <img src="/images/cintura.png" class="cintura" alt="Cintura modelada">
             <div style="padding-left: 25px; padding-right: 25px;">
-                <a href="#box-produto-2">
+                <a href="#box-produto-2" onclick="openDelayed()">
                     <button class="btn-comprar-agora bounce" style="margin-top: 30px;margin-bottom: 30px;">Comprar agora</button>
                 </a>
             </div>
@@ -108,7 +108,7 @@
                     <li><img class="check" src="/images/check.png" />RECEBA EM CASA</li>
                     <li><img class="check" src="/images/check.png" />FRETE GRÁTIS</li>
                 </ul>
-                <a href="#box-produto-2">
+                <a href="#box-produto-2" onclick="openDelayed()">
                     <button class="btn-comprar-agora bounce" style="margin-top: 30px;margin-bottom: 30px;">Comprar agora</button>
                 </a>
             </div>
@@ -258,7 +258,7 @@
                 </div>
             </div>
 
-            <a href="#box-produto-2">
+            <a href="#box-produto-2" onclick="openDelayed()">
                 <button class="btn-comprar-agora bounce" style="margin-top: 30px;margin-bottom: 30px;">Comprar agora</button>
             </a>
 
@@ -302,6 +302,12 @@
         var corSelecionada = false;
         var tamanhoSelecionado = false;
         var tipoCompra = 0;
+
+        function openDelayed() {
+            setTimeout(() => {
+                openBuy(2);
+            }, 700);
+        }
 
         function openBuy(idOrder) {
             tipoCompra = idOrder;
