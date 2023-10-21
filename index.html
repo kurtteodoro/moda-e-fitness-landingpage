@@ -39,15 +39,19 @@
     <div class="background-color">
         <div id="parte1">
             <img src="/images/segredo.png" alt="Descubra o segredo das famosas" class="segredo" />
-            <ul class="vantagens">
+            <ul class="vantagens" style="margin-bottom: 25px;">
                 <li><img class="check" src="/images/check.png" />EMPINA BUMBUM</li>
                 <li><img class="check" src="/images/check.png" />MODELA A CINTURA</li>
                 <li><img class="check" src="/images/check.png" />TECIDO NÃO ALÉRGICO</li>
                 <li><img class="check" src="/images/check.png" />BARRIGA SEM GORDURA</li>
                 <li><img class="check" src="/images/check.png" />FRETE GRÁTIS</li>
             </ul>
+            <div class="bounce">
+                <p style="color: #FF348E;">Promoção termina em</p>
+                <p style="color: #FF348E; font-size: 30px; line-height: 0px; transform: scale(2) translateX(25%);"><span id="horas1">00</span>:<span id="minutos1"></span>:<span id="segundos1"></span></p>
+            </div>
             <a href="#box-produto-2">
-                <button class="btn-comprar-agora bounce" style="margin-top: 30px;margin-bottom: 30px;">Comprar agora</button>
+                <button class="btn-comprar-agora bounce" style="margin-top: 15px;margin-bottom: 30px;">Comprar agora</button>
             </a>
             <img src="/images/garantias.png" class="garantias">
         </div>
@@ -390,6 +394,8 @@
                 }
                 $("#minutos").text(`${("00" + minutos).slice(-2)}`);
                 $("#segundos").text(`${("00" + segundos).slice(-2)}`);
+                $("#minutos1").text(`${("00" + minutos).slice(-2)}`);
+                $("#segundos1").text(`${("00" + segundos).slice(-2)}`);
             }, 1000);
 
             $('.your-class').slick({
