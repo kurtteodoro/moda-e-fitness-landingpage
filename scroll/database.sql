@@ -1,0 +1,33 @@
+CREATE TABLE `acessos` (
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`sessao_id` INT(11) NULL DEFAULT NULL,
+	`data` TEXT NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`data_hora` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `eventos` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`acesso_id` INT(10) UNSIGNED NOT NULL,
+	`evento` TEXT NOT NULL COLLATE 'utf8mb4_general_ci',
+	`data_hora` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `sessoes` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`ip` TEXT NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`data_hora` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=44
+;
+eventos

@@ -10,6 +10,30 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/scroll/vendor/composer" />
+      <path value="$PROJECT_DIR$/scroll/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/scroll/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/scroll/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/scroll/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/scroll/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/scroll/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/scroll/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/scroll/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/scroll/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/scroll/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/scroll/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/scroll/vendor/cboden/ratchet" />
+      <path value="$PROJECT_DIR$/scroll/vendor/ratchet/rfc6455" />
+      <path value="$PROJECT_DIR$/scroll/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/scroll/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/scroll/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/scroll/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/scroll/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/scroll/vendor/symfony/routing" />
+    </include_path>
+  </component>
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>

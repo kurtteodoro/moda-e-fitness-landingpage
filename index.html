@@ -265,8 +265,8 @@
         </div>
     </div>
 
-    <div class="dark">
-        <div class="card">
+    <div class="dark" aa="aa">
+        <div class="card" style="max-width: 600px;">
             <div style="padding: 20px">
                 <p style="margin: 0px; font-size: 12px; ">Qual a cor e tamanho que você quer vestir ?</p>
                 <div style="display: flex; justify-content: space-around; margin-top: 20px;">
@@ -294,8 +294,21 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+    <script src="/scroll/client.js"></script>
     <script>
+
+        document.addEventListener("click", event => {
+            if(event?.target?.getAttribute('class') == 'dark') {
+                $(".dark").css({
+                    opacity: 0,
+                });
+                setTimeout(() => {
+                    $(".dark").css({
+                        display: 'none'
+                    });
+                }, 100);
+            }
+        });
 
         var minutos = 10;
         var segundos = 0;
