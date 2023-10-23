@@ -467,9 +467,6 @@
             if(evento.tipo == 'scroll') {
                 document.body.style.scrollBehavior = 'auto';
                 window.scrollBy(evento.x, evento.y);
-                setTimeout(function() {
-                    document.body.style.scrollBehavior = 'smooth';
-                }, 50);
             }
         });
 
