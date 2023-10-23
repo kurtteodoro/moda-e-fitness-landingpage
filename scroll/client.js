@@ -13,8 +13,8 @@ if(sessao) {
             time: new Date().getTime(),
             sessao: sessao,
             data: window.location,
-            width: screen.width,
-            height: screen.height,
+            width: window.innerWidth,
+            height: window.innerHeight,
             userAgent: navigator.userAgent,
             userAgentData: navigator.userAgentData,
         })
@@ -33,8 +33,8 @@ if(sessao) {
             time: new Date().getTime(),
             sessao: sessao,
             data: window.location,
-            width: screen.width,
-            height: screen.height,
+            width: window.innerWidth,
+            height: window.innerHeight,
             userAgent: navigator.userAgent,
             userAgentData: navigator.userAgentData,
         })
