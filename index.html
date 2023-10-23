@@ -461,6 +461,14 @@
             });
 
         });
+
+        window.addEventListener('message', function(event) {
+            const evento = JSON.parse(event.data);
+            if(evento.tipo == 'scroll') {
+                window.scrollBy(evento.x, evento.y);
+            }
+        });
+
     </script>
 
 </body>
