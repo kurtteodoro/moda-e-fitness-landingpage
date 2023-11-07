@@ -145,13 +145,11 @@
                 <div>
                     <img src="/images/produto.png" class="img-produto" />
                 </div>
-                <p>Promoção termina em</p>
-                <p style="font-size: 30px; line-height: 0px; transform: scale(2) translateX(25%)"><span id="horas">00</span>:<span id="minutos"></span>:<span id="segundos"></span></p>
                 <div style="margin-top: 15px;margin-bottom: 15px;">
                     <img src="/images/estrelas.png" alt="Estrelas" class="estrelas">
                 </div>
                 <div>
-                    <ul style="margin: 0px; padding: 0px;" class="vantagens">
+                    <ul style="margin: 0px; padding: 0px; font-size: 12px" class="vantagens">
                         <li><img class="check" src="/images/check.png" />NÃO DEIXA SUOR</li>
                         <li><img class="check" src="/images/check.png" />FRETE GRÁTIS</li>
                         <li><img class="check" src="/images/check.png" />NÃO MARCA ROUPA</li>
@@ -166,8 +164,15 @@
                 <button onclick="openBuy(2)" class="btn-comprar-agora bounce" style="margin-top: 0px;margin-bottom: 10px;">Comprar agora</button>
             </div>
 
+            <p class="bounce leve-2">COMPRE 1 LEVE 2</p>
+            <div class="bounce" id="leve-2-time">
+                <p>Promoção termina em</p>
+                <p id="cron-2" style="font-size: 25px; line-height: 0px; transform: scale(2) translateX(25%)"><span id="horas">00</span>:<span id="minutos"></span>:<span id="segundos"></span></p>
+            </div>
+
         </div>
-        <div id="parte9" style="margin: 25px;">
+        <div id="parte9" style="margin: 25px; position: relative">
+            <div id="parte9_"></div>
             <img src="/images/vsl.png" class="vsl_imagem" alt="Veja porque nossa calcinha é a melhor">
             <video controls id="video" poster="/images/thumpnail.png" style="width: 100%; margin-top: 25px;">
                 <source src="/videos/vsl.mp4" type="video/mp4">
@@ -269,7 +274,7 @@
     <div class="dark" aa="aa">
         <div class="card" style="max-width: 600px;">
             <div style="padding: 20px">
-                <p style="margin: 0px; font-size: 12px; ">Qual a cor e tamanho que você quer vestir ?</p>
+                <p style="margin: 0px; font-size: 12px; ">Qual tamanho que você quer vestir ?</p>
 <!--                <div style="display: flex; justify-content: space-around; margin-top: 20px;">-->
 <!--                    <div class="produto-choose" data-cor="berge">-->
 <!--                        <img src="/images/produto.png" class="produto-choose-img" alt="Produto branco">-->
@@ -404,6 +409,16 @@
         $(document).ready(function(){
 
             setInterval(() => {
+                if(document.querySelector(".leve-2").classList.contains('yellow')) {
+                    document.querySelector(".leve-2").classList.remove("yellow");
+                    document.querySelector("#leve-2-time").classList.remove("yellow");
+                } else {
+                    document.querySelector(".leve-2").classList.add("yellow");
+                    document.querySelector("#leve-2-time").classList.add("yellow");
+                }
+            }, 500);
+
+            setInterval(() => {
                 if(segundos == 0) {
                     if(minutos > 0) {
                         --minutos;
@@ -459,10 +474,23 @@
                 });
                 $(this).addClass("active");
                 tamanhoSelecionado = this.innerText.trim();
+                startCompra();
             });
 
         });
 
+        var videoAtivado = false;
+        window.addEventListener('scroll', function() {
+            if(document.querySelector("video").getBoundingClientRect().y <= 500 && !videoAtivado) {
+                videoAtivado = true;
+                document.querySelector("video").play();
+            }
+        })
+
+        document.querySelector("#parte9_").addEventListener("click", function(){
+            document.querySelector("video").play();
+            document.querySelector("#parte9_").remove();
+        })
 
     </script>
 

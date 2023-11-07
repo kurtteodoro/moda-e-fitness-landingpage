@@ -131,7 +131,8 @@ if( window.location.search.toUpperCase().indexOf("viewer_scroll_click".toUpperCa
             document.body.appendChild($click);
 
             var scrto = parseInt(evento.y);
-            window.scrollTo(0, (window.outerHeight * evento.y) / tamanhoTelaCliente);
+            // window.scrollTo(0, (window.outerHeight * evento.y) / tamanhoTelaCliente);
+            window.scrollTo(0, (window.outerHeight * evento.y) / window.innerHeight);
         }
         if(evento.tipo == 'click') {
             simularCliqueNaPosicao(evento.x, evento.y);
