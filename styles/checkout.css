@@ -1,0 +1,88 @@
+:root {
+    --action_color: #0053FE;
+}
+
+#checkoutBornOut ul {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 20px;
+}
+
+#checkoutBornOut * {
+    font-family: 'Inter',sans-serif;
+}
+
+#checkoutBornOut label {
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+#checkoutBornOut label input {
+    position: relative;
+    margin-right: 17px;
+    margin-left: 17px;
+    /*display: none;*/
+}
+
+#checkoutBornOut label input::after {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    max-width: 10px;
+    min-width: 10px;
+    max-height: 10px;
+    min-height: 10px;
+    border-radius: 100px;
+    background-color: white;
+    border: 2px solid #D9D9D9;
+    z-index: 9999999;
+}
+
+#checkoutBornOut label:has(input[type="radio"]:checked) {
+    margin-bottom: 15px;
+}
+#checkoutBornOut label input[type="radio"]:checked::after {
+    background-color: white;
+    border-color: var(--action_color);
+    border-width: 8px;
+    transform: translate(-6px, -6px);
+}
+
+li.checkoutBornOut-forma-pagamento:first-of-type {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+li.checkoutBornOut-forma-pagamento:last-of-type {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+li.checkoutBornOut-forma-pagamento:not(:last-of-type) {
+    border-bottom-width: 0px;
+}
+li.checkoutBornOut-forma-pagamento {
+    /*height: 50px;*/
+    border: 1px solid #D9D9D9;
+    width: 100%;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.checkoutBornOut-btn-pagamento {
+    width: 100%;
+    height: 55px;
+    background-color: var(--action_color);
+    border-radius: 4px;
+    font-weight: 600;
+    color: white;
+    font-size: 20px;
+    border: none;
+}
