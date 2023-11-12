@@ -11,11 +11,11 @@
         gtag('config', 'G-6V0Z8JEND9');
     </script>
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#fcfff5" />
+    <meta name="theme-color" content="#FF318B" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css?v=2">
     <link rel="stylesheet" href="/styles/checkout.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -37,11 +37,27 @@
                    src="https://www.facebook.com/tr?id=1321055672101036&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+
+            ttq.load('CL6479JC77U2NK3M31R0');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
 </head>
 <body>
 
+    <div id="container-alguem-comprou">
+        <span style="margin-right: 6px;" id="pessoas-pagina"></span> Pessoas nesta página
+    </div>
+
+    <div id="fulana-comprou">
+        <span style="margin-right: 6px;" id="nome-fulano"></span> Acabou de comprar
+    </div>
+
     <div class="background-color">
-        <div id="parte1">
+        <div id="parte1" style="margin-top: 50px">
             <img src="/images/segredo.png" alt="Descubra o segredo das famosas" class="segredo" />
             <ul class="vantagens" style="margin-bottom: 25px;">
                 <li><img class="check" src="/images/check.png" />EMPINA BUMBUM</li>
@@ -59,8 +75,14 @@
             </a>
             <img src="/images/garantias.png" class="garantias">
         </div>
+        <div style="padding-left: 20px; padding-right: 20px; margin-top: 10px;">
+            <img src="/images/seu_marido_ciumes.png" style="width: 100%; border-radius: 10px">
+        </div>
+        <div style="padding: 20px">
+            <img src="/images/homemOlhandoBunda.webp" style="width: 100%; border-radius: 10px">
+        </div>
         <div id="parte2">
-            <img src="/images/autoestima.png" class="autoestima" alt="Desperte olhares, seja notada" style="margin-top: 10px; margin-bottom: 10px;">
+            <img src="/images/autoestima.png" class="autoestima" alt="Desperte olhares, seja notada" style="margin-top: 5px; margin-bottom: 10px;">
             <img src="/images/calcinha_detalhada.png" class="calcinha-detalhada">
             <ul style="margin: 0px; padding: 0px; margin-top: 30px;" class="vantagens">
                 <li><img class="check" src="/images/check.png" />PREENCHIMENTO NO BUMBUM</li>
@@ -172,7 +194,7 @@
                 <small>
                     <p class="fake-preco" style="font-size: 30px">R$380</p>
                 </small>
-                <p class="preco">R$ 94,00</p>
+                <p class="preco">R$ 120,00</p>
                 <button onclick="openBuy(2)" class="btn-comprar-agora bounce" style="margin-top: 0px;margin-bottom: 10px;">Comprar agora</button>
             </div>
 
@@ -278,7 +300,7 @@
     <div class="dark" aa="aa">
         <div class="card" style="max-width: 600px;">
             <div style="padding: 20px">
-                <p style="margin: 0px; font-size: 12px; ">Qual tamanho você veste ?</p>
+                <p style="margin: 0px; font-size: 12px; ">Qual tamanho você quer vestir ?</p>
 <!--                <div style="display: flex; justify-content: space-around; margin-top: 20px;">-->
 <!--                    <div class="produto-choose" data-cor="berge">-->
 <!--                        <img src="/images/produto.png" class="produto-choose-img" alt="Produto branco">-->
@@ -329,6 +351,7 @@
                 <button onclick="startCompra()" class="btn-comprar-agora" style="margin-top: 30px;margin-bottom: 30px;">Continuar</button>
             </div>
         </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -336,6 +359,133 @@
     <script src="/scroll/client.js"></script>
     <script>
 
+        var contadorCompras = parseInt((localStorage.getItem("contadorCompras") ?? 0).toString());
+        const nomesMulheres = [
+            'Ana',
+            'Beatriz',
+            'Carolina',
+            'Daniela',
+            'Elaine',
+            'Fernanda',
+            'Gabriela',
+            'Helena',
+            'Isabela',
+            'Juliana',
+            'Karen',
+            'Larissa',
+            'Mariana',
+            'Natália',
+            'Olivia',
+            'Patrícia',
+            'Quitéria',
+            'Raquel',
+            'Simone',
+            'Tatiane',
+            'Ursula',
+            'Vitória',
+            'Wanessa',
+            'Ximena',
+            'Yasmin',
+            'Zuleide',
+            'Adriana',
+            'Bianca',
+            'Cristina',
+            'Débora',
+            'Eliane',
+            'Fátima',
+            'Gisele',
+            'Heloísa',
+            'Ivete',
+            'Jéssica',
+            'Kátia',
+            'Luana',
+            'Monica',
+            'Natalie',
+            'Oriana',
+            'Pâmela',
+            'Queila',
+            'Renata',
+            'Sabrina',
+            'Talita',
+            'Ursula',
+            'Valéria',
+            'Wanda',
+            'Yara',
+            'Zoraide',
+            'Aline',
+            'Bruna',
+            'Camila',
+            'Diana',
+            'Érica',
+            'Fernanda',
+            'Gabriela',
+            'Helena',
+            'Ingrid',
+            'Juliana',
+            'Karine',
+            'Larissa',
+            'Mariana',
+            'Natália',
+            'Olivia',
+            'Patrícia',
+            'Queila',
+            'Renata',
+            'Simone',
+            'Tatiane',
+            'Ursula',
+            'Vitória',
+            'Wanessa',
+            'Ximena',
+            'Yasmin',
+            'Zuleide'
+        ];
+
+        var qtdPessoasPagina = parseInt((localStorage.getItem("qtdPessoasVisu") ?? 24).toString());
+        document.querySelector("#pessoas-pagina").innerText = qtdPessoasPagina;
+
+        setInterval(() => {
+            if(parseInt((Math.random(1)*2))) {
+                ++qtdPessoasPagina;
+                if(qtdPessoasPagina >= 30)
+                    qtdPessoasPagina -= 4;
+            } else {
+                --qtdPessoasPagina
+                if(qtdPessoasPagina <= 15)
+                    qtdPessoasPagina += 4;
+            }
+            localStorage.setItem("qtdPessoasVisu", qtdPessoasPagina);
+            document.querySelector("#pessoas-pagina").innerText = qtdPessoasPagina;
+        }, 7000);
+
+        setTimeout(() => {
+            if(nomesMulheres[contadorCompras]) {
+                document.querySelector("#nome-fulano").innerText = nomesMulheres[contadorCompras];
+                ++contadorCompras;
+                document.querySelector("#fulana-comprou").classList.add('show');
+                setTimeout(()=> {
+                    document.querySelector("#fulana-comprou").classList.remove('show');
+                },3000);
+                setInterval(() => {
+                    if(nomesMulheres[contadorCompras]) {
+                        document.querySelector("#nome-fulano").innerText = nomesMulheres[contadorCompras];
+                        ++contadorCompras;
+                        localStorage.setItem("contadorCompras", contadorCompras);
+                        document.querySelector("#fulana-comprou").classList.add('show');
+                        setTimeout(()=> {
+                            document.querySelector("#fulana-comprou").classList.remove('show');
+                        },3000);
+                    } else {
+                        contadorCompras = 0;
+                        localStorage.setItem("contadorCompras", 1);
+                    }
+                }, 15000);
+            } else {
+                contadorCompras = 0;
+                localStorage.setItem("contadorCompras", 1);
+            }
+        }, 6000);
+
+        var modalAberto = false;
         document.addEventListener("click", event => {
             if(event?.target?.getAttribute('class') == 'dark') {
                 $(".dark").css({
@@ -356,12 +506,14 @@
         var tipoCompra = 0;
 
         function openDelayed() {
+            modalAberto = true;
             setTimeout(() => {
                 openBuy(2);
-            }, 700);
+            }, 2000);
         }
 
         function openBuy(idOrder) {
+            modalAberto = true;
             tipoCompra = idOrder;
             $(".dark").css({
                 display: 'flex'
@@ -514,7 +666,7 @@
 
         var videoAtivado = false;
         window.addEventListener('scroll', function() {
-            if(document.querySelector("video").getBoundingClientRect().y <= 500 && !videoAtivado) {
+            if(document.querySelector("video").getBoundingClientRect().y <= 500 && !videoAtivado && !modalAberto) {
                 videoAtivado = true;
                 document.querySelector("video").play();
             }

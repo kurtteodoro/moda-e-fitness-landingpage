@@ -419,3 +419,37 @@ li {
 #leve-2-time.yellow * {
     color: #ff8109 !important;
 }
+
+#container-alguem-comprou, #fulana-comprou {
+    width: 100vw;
+    height: 50px;
+    background-color: #FF318B;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 999;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fulana-comprou {
+    top: inherit;
+    bottom: -100px;
+    width: 90vw;
+    margin-left: 5%;
+    border-radius: 6px;
+    background-color: #FF318B;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.47);
+    font-size: 15px;
+    transition: bottom 0.3s ease;
+}
+
+#fulana-comprou, #fulana-comprou * {
+    font-family: Inter;
+}
+
+#fulana-comprou.show {
+    bottom: 30px !important;
+}
