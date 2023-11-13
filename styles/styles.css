@@ -395,6 +395,9 @@ li {
     .preco {
         font-size: 40px !important;
     }
+    .btn-comprar-agora {
+        font-size: 17px;
+    }
 }
 
 .leve-2 {
