@@ -15,8 +15,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/styles.css?v=2">
+    <link rel="stylesheet" href="/styles/card.css?v=2">
     <link rel="stylesheet" href="/styles/checkout.css">
+    <link rel="stylesheet" href="/styles/styles.css?v=2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <title>Moda & Fitness Promoção imperdível</title>
@@ -150,7 +151,7 @@
             <img src="/images/antes_depois.png" class="antes_depois" alt="O antes e depois vai te deixar impressionada">
         </div>
         <div id="parte9" style="margin: 25px; position: relative">
-            <div id="parte9_"></div>
+<!--            <div id="parte9_"></div>-->
             <img src="/images/vsl.png" class="vsl_imagem" alt="Veja porque nossa calcinha é a melhor">
             <video controls id="video" poster="/images/thumpnail.png" style="width: 100%; margin-top: 25px;">
                 <source src="/videos/vsl.mp4" type="video/mp4">
@@ -204,7 +205,7 @@
                 </small>
                 <p class="preco">
                     R$ 120,00</p>
-                <button onclick="openBuy(2)" class="btn-comprar-agora bounce" style="margin-top: 0px;margin-bottom: 10px;">
+                <button onclick="openBuy(2, true)" class="btn-comprar-agora bounce" style="margin-top: 0px;margin-bottom: 10px;">
                     <img style="width: 22px; margin-right: 5px; transform: translate(0px, 3px)" src="/images/cart.svg">Comprar agora</button>
             </div>
 
@@ -242,7 +243,7 @@
                     <img src="/images/arrow_ask.svg" />
                 </div>
                 <div class="resposta">
-                    <p>Oferecemos uma ampla variedade de medidas: M, P, G, GG, XG e XXG para atender a todas as necessidades.</p>
+                    <p>Oferecemos uma ampla variedade de medidas: M, P, G, GG e XG para atender a todas as necessidades.</p>
                 </div>
             </div>
             <div class="ask">
@@ -311,63 +312,345 @@
     <div class="dark" aa="aa">
         <div class="card" style="max-width: 600px;">
             <div style="padding: 20px">
-                <p style="margin: 0px; font-size: 12px; ">Qual tamanho você quer vestir ?</p>
-                <div style="display: flex; justify-content: space-around; margin-top: 20px;">
-                    <div class="produto-choose active" data-cor="berge">
-                        <img src="/images/produto.png" class="produto-choose-img" alt="Produto branco">
-                        <p>Berge</p>
+                <div id="container-escolha_tamanho">
+                    <p style="margin: 0px; font-size: 12px; ">Qual tamanho você quer vestir ?</p>
+                    <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                        <div style="text-align: center">
+                            <img src="/images/produto.png" class="produto-choose-img" alt="Produto branco">
+                        </div>
+<!--                        <div class="produto-choose" data-cor="preto">-->
+<!--                            <img src="/images/black.png" class="produto-choose-img" alt="Produto preto">-->
+<!--                            <p>Preto</p>-->
+<!--                        </div>-->
                     </div>
-                    <div class="produto-choose" data-cor="preto">
-                        <img src="/images/black.png" class="produto-choose-img" alt="Produto preto">
-                        <p>Preto</p>
+                    <div style="display: flex; margin-top: 20px;">
+                        <button class="btn-size">P</button>
+                        <button class="btn-size">M</button>
+                        <button class="btn-size">G</button>
+                        <button class="btn-size">GG</button>
+                        <button class="btn-size">XG</button>
+<!--                        <button class="btn-size">XXG</button>-->
+                    </div>
+                    <div style="border-radius: 100px; overflow: hidden; background-color: #0053FE; width: min-content; white-space: nowrap; font-family: Inter; margin-top: 10px; font-weight: 700; padding: 2px 15px 2px 15px; color: white; ">
+                        Frete grátis
+                    </div>
+                    <p style="font-family: Inter; font-weight: 600; margin-bottom: 0px; margin-top: 5px;">Calcinha com preenchimento</p>
+                    <p style="font-family: Inter; font-weight: 600; margin-bottom: 0px; margin-top: 5px;">Unidades: <u style="font-family: Inter; font-weight: 600; margin-bottom: 0px; margin-top: 5px;">Compre 1 leve 2</u></p>
+                    <p style="margin-bottom: 0px; margin-top: 10px; font-size: 25px">R$120,00</p>
+                </div>
+                <div id="container-checkout">
+                    <p style="margin-top: 0px; font-size: 12px; ">Selecione a forma de pagamento</p>
+                    <div id="checkoutBornOut">
+                        <div id="checkoutBornOut-resumo">
+                            <div>
+                                <img src="/images/produto.png" class="checkoutBornOut-ImgProduct" alt="Produto branco">
+                            </div>
+                            <div style="margin-left: 10px; white-space: nowrap;">
+                                <p style="font-family: Inter; margin-bottom: 0px; margin-top: 0px;">Calcinha com preenchimento</p>
+                                <p style="font-family: Inter; margin-bottom: 0px; margin-top: 5px;">Unidades: 2 / <span id="checkoutBornOut-tam"></span></p>
+<!--                                <p style="font-family: Inter; margin-bottom: 0px; margin-top: 5px;">Tamanho: GG</p>-->
+                                <p style="margin-bottom: 0px; margin-top: 5px; font-size: 15px">R$120,00</p>
+                            </div>
+                        </div>
+                        <div id="checkoutBornOut-container-info-pessoal">
+                            <form id="checkoutBornOut-form-dados-cliente" style="margin-top: 10px;">
+                                <!--                            <h3 style="margin-bottom: 0px;">Informações pessoais</h3>-->
+                                <!--                            <p style="margin-top: 0px; margin-bottom: 20px;"><small>Para quem devemos entregar o produto ?</small></p>-->
+                                <div style="margin-bottom: 10px;">
+                                    <label class="checkoutBornOut-input-label">
+                                        Nome completo
+                                        <input value="Joseph Teodoro da Silva" onkeydown="event.target.classList.remove('error')" required id="checkoutBornOut-input-nome" class="checkoutBornOut-input" type="text" placeholder="Nome completo">
+                                        <span>Insira seu nome completo</span>
+                                    </label>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <label class="checkoutBornOut-input-label">
+                                        E-mail
+                                        <input value="josephteodoro2001@gmail.com" onkeydown="event.target.classList.remove('error')" required id="checkoutBornOut-input-email" class="checkoutBornOut-input" type="email" placeholder="Insira seu email">
+                                    </label>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <label class="checkoutBornOut-input-label">
+                                        Celular
+                                        <input value="62993702574" inputmode="numeric" onkeydown="event.target.classList.remove('error')" required id="checkoutBornOut-input-celular" class="checkoutBornOut-input" type="text" placeholder="Whatsapp para contato">
+                                        <span>Insira um número de celular válido</span>
+                                    </label>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <label class="checkoutBornOut-input-label">
+                                        CPF
+                                        <input value="70010258108" inputmode="numeric" onkeydown="event.target.classList.remove('error')" required id="checkoutBornOut-input-cpf" class="checkoutBornOut-input" type="text" placeholder="Insira seu CPF">
+                                        <span>CPF Inválido</span>
+                                    </label>
+                                </div>
+                                <button class="checkoutBornOut-btn-pagamento" style="margin-top: 5px;">
+                                    <img style="width: 16px; margin-right: 5px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nOWVMQ6CQBBF9wJYkGil4TpaKnog4yFItOcGyi3Q0hpaTZTY6rPZmCmUZYWJhT+Zhn3732YajHEEGAArYA/c7OT2W99131U+Byo+5wrM2pQ/cOfuLbFrkS8vgBgI7EyBozi/eK3L7leWh2+YECgFt/QRHMTFuIZbCC73Ecj1BDVcT3CVj+AV0yGrLwDOtM+p0WvaxPytYAsM7ew0BEPBjTQEkeAiDUEquFRDkAku0xCsBbfRECSCSzQEjfNTQdlBf1EnmNhf5NflwFiWPgG9GC39GXdszgAAAABJRU5ErkJggg==">
+                                    Compra segura</button>
+                                <!--                            <div style="margin-bottom: 10px;">-->
+                                <!--                                <label class="checkoutBornOut-input-label">-->
+                                <!--                                    CEP-->
+                                <!--                                    <input id="cep" class="checkoutBornOut-input" type="text" placeholder="Insira o CEP de entrega">-->
+                                <!--                                </label>-->
+                                <!--                            </div>-->
+                            </form>
+                        </div>
+                        <div id="checkoutBornOut-container-info-entrega">
+                            <div id="checkoutBornOut-pix-pagamento-realizado">
+                                <h3>Seu pedido foi realizado com sucesso</h3>
+                                <p>Você receberá uma notificação automática via <b>Whatsapp</b> assim que seu pagamento for compensado. Mas não se preocupe, você pode falar com a gente pelo nosso whatsapp</p>
+                                <a href="https://api.whatsapp.com/send?phone=556291439301&text=Ol%C3%A1,%20acabei%20de%20realizar%20um%20pedido%20pelo%20site" target="_blank">
+                                    <img src="/images/fale-conosco-whats.png" style="width: 250px;">
+                                </a>
+                            </div>
+                            <div id="checkoutBornOut-boleto-container">
+                                <h3>Seu pedido foi realizado com sucesso</h3>
+                                <p style="margin: 0px">Realize o pagamento em até 2 dias</p>
+                                <p>Você receberá uma notificação automática via <b>Whatsapp</b> assim que seu pagamento for compensado. Mas não se preocupe, você pode falar com a gente pelo nosso whatsapp</p>
+                                <a id="checkoutBornOut-href-boleto" style="width: 100%" target="_blank">
+                                    <button class="checkoutBornOut-btn-copy" style="margin-bottom: 15px; width: 100%;">
+                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style><g><path fill="#FFF" class="st0" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/></g></svg>
+                                        VER BOLETO</button>
+                                </a>
+                                <a href="https://api.whatsapp.com/send?phone=556291439301&text=Ol%C3%A1,%20acabei%20de%20realizar%20um%20pedido%20pelo%20site" target="_blank">
+                                    <img src="/images/fale-conosco-whats.png" style="width: 250px;">
+                                </a>
+                            </div>
+                            <div id="checkoutBornOut-cartao-container">
+                                <h3>Seu pedido foi realizado com sucesso</h3>
+                                <p>Você receberá uma notificação automática via <b>Whatsapp</b> assim que seu pagamento for compensado. Mas não se preocupe, você pode falar com a gente pelo nosso whatsapp</p>
+                                <a href="https://api.whatsapp.com/send?phone=556291439301&text=Ol%C3%A1,%20acabei%20de%20realizar%20um%20pedido%20pelo%20site" target="_blank">
+                                    <img src="/images/fale-conosco-whats.png" style="width: 250px;">
+                                </a>
+                            </div>
+                            <div id="checkoutBornOut-pix-qrcode-container">
+                                <img src="" id="checkoutBornOut-pix-qrcode" />
+                                <div class="bounce" id="leve-3-time">
+                                    <p style="font-family: 'cacas'">Realize o pagamento em</p>
+                                    <p id="cron-3" style="font-size: 25px; line-height: 0px; transform: scale(2) translateX(25%);"><span style="font-family: 'cacas';" id="minutos3">30</span>:<span style="font-family: 'cacas';" id="segundos3">00</span></p>
+                                </div>
+                                <label class="checkoutBornOut-input-label">
+                                    PIX Copia e cola
+                                    <input id="checkoutBornOut-pix-textarea" class="checkoutBornOut-input" readonly placeholder="PIX Copia e cola">
+                                </label>
+                                <div style="width: 100%; margin-top: 15px; margin-bottom: 15px;">
+                                    <button class="checkoutBornOut-btn-copy" onclick="copiarPix()">
+                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style><g><path fill="#FFF" class="st0" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/></g></svg>
+                                        COPIAR</button>
+                                </div>
+                                <h3>Chave pix gerada com sucesso</h3>
+                                <p>Estamos aguardando o pagamento! Após realizar o pagamento, aguarde nesta tela para confirmar seu pedido.</p>
+                                <div class="content-box thank_sec_2">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <br>
+                                            <h2 class="font-weight-bold" style="margin-top: 0px;">Como pagar o seu pedido</h2>
+<!--                                            <img src="/images/print.svg">-->
+                                            <p><b>1 - Copie o código</b> acima clicando no botão</p>
+<!--                                            <img src="/images/mobil.svg">-->
+                                            <p><b>2 - </b>Abra o aplicativo de seu banco e selecione <b>Copia e Cola</b> na opção de <b>pagamento por PIX</b> . Certifique-se que os dados estão corretos e finalize o pagamento </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="checkoutBornOut-btn-copy success" id="japaguei-pix">JÁ PAGUEI</button>
+                            </div>
+                            <form id="checkoutBornOut-form-dados-entrega" style="margin-top: 10px;">
+                                <div style="margin-bottom: 10px;">
+                                    <label class="checkoutBornOut-input-label">
+                                        CEP
+                                        <input inputmode="numeric" value="7435664" onkeydown="event.target.classList.remove('error');" onkeyup="checkoutBornOutValidarCep(event.target.value)" required id="checkoutBornOut-input-cep" class="checkoutBornOut-input" type="text" placeholder="CEP">
+                                        <span>CEP Inválido</span>
+                                    </label>
+                                </div>
+                                <div id="checkoutBornOut-form-dados-entrega-2">
+                                    <div style="display: flex">
+                                        <div style="width: calc(70% - 10px); margin-right: 10px">
+                                            <div style="margin-bottom: 10px;">
+                                                <label class="checkoutBornOut-input-label">
+                                                    Endereço
+                                                    <input onkeydown="event.target.classList.remove('error');" required id="checkoutBornOut-input-endereco" class="checkoutBornOut-input" type="text" placeholder="Endereço">
+                                                    <span>Insira um endereço válido</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div style="width: calc(30% - 10px); margin-left: 10px">
+                                            <div style="margin-bottom: 10px;">
+                                                <label class="checkoutBornOut-input-label">
+                                                    Número
+                                                    <input onkeydown="event.target.classList.remove('error');" required id="checkoutBornOut-input-numero" class="checkoutBornOut-input" type="text" placeholder="Nº">
+                                                    <span>Insira o número da residência</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom: 10px;">
+                                        <label class="checkoutBornOut-input-label">
+                                            Bairro
+                                            <input onkeydown="event.target.classList.remove('error');" required id="checkoutBornOut-input-bairro" class="checkoutBornOut-input" type="text" placeholder="Bairro">
+                                            <span>Insira um bairro válido</span>
+                                        </label>
+                                    </div>
+                                    <div style="margin-bottom: 10px;">
+                                        <label class="checkoutBornOut-input-label">
+                                            Complemento
+                                            <input onkeydown="event.target.classList.remove('error');" id="checkoutBornOut-input-complemento" class="checkoutBornOut-input" type="text" placeholder="Complemento">
+                                        </label>
+                                    </div>
+                                    <div id="checkoutBornOut-frete_container">
+                                        <div style="margin-right: 8px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 20 20"><path fill="#00a650" fill-rule="nonzero" d="M10.587 14.805H7.01a2.452 2.452 0 1 1-4.452-1.937l-1.56-.003.002-1.2 3.6.008v.025h.048c1.167 0 2.143.815 2.39 1.907h3.52a2.455 2.455 0 0 1 1.836-1.844l2.423-6.352a.6.6 0 0 0-.56-.814H4.6v-1.2h9.658a1.8 1.8 0 0 1 1.697 2.4h1.677l1.409 4.225-2.027 4.787-1.701-.007a2.452 2.452 0 0 1-4.726.005zm4.751-1.205l.883.004 1.538-3.634-.991-2.975h-1.27l-1.835 4.809c.834.253 1.48.939 1.675 1.796zM7 5.79v1.2H1v-1.2h6zM4.6 8.222v1.2H2.2v-1.2h2.4zm.049 7.178a1.251 1.251 0 1 0 0-2.502 1.251 1.251 0 0 0 0 2.502zm8.3 0a1.251 1.251 0 1 0 0-2.502 1.251 1.251 0 0 0 0 2.502z"></path></svg>
+                                        </div>
+                                        <div>
+                                            <h4>Chegará grátis</h4>
+                                            <p>2 a 15 dias</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h3 style="margin-bottom: 0px;">Método de pagamento</h3>
+                                    <p style="margin-top: 0px; margin-bottom: 20px;"><small>Selecione um método de pagamento</small></p>
+                                    <ul style="margin: 2px; margin-top: 25px;">
+                                        <li class="checkoutBornOut-forma-pagamento">
+                                            <label class="checkoutBornOut-label">
+                                                <input onchange=" buffer.push({tipo:'change_forma_pagamento', time: new Date().getTime(), forma_pagamento:1}); metodoPagamento = event.target.checked ? 1 : metodoPagamento; $('.required-cartao').attr('required', false);" checked type="radio" name="forma_pagamento_bornout" id="forma_pagamento_bornout_pix">
+                                                PIX <span id="checkoutBornOut-desconto">Desconto R$10,00</span>
+                                            </label>
+                                            <div class="checkoutBornOut-forma-pagamento-conteudo" style="width: 90%; margin-bottom: 20px; font-size: 14px">
+                                                <p>Clique em "Finalizar Compra" para gerar o PIX.</p>
+                                                <p>Valor à vista <b>R$114.00;</b></p>
+                                                <button class="checkoutBornOut-btn-pagamento">
+                                                    <img style="width: 16px; margin-right: 5px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nOWVMQ6CQBBF9wJYkGil4TpaKnog4yFItOcGyi3Q0hpaTZTY6rPZmCmUZYWJhT+Zhn3732YajHEEGAArYA/c7OT2W99131U+Byo+5wrM2pQ/cOfuLbFrkS8vgBgI7EyBozi/eK3L7leWh2+YECgFt/QRHMTFuIZbCC73Ecj1BDVcT3CVj+AV0yGrLwDOtM+p0WvaxPytYAsM7ew0BEPBjTQEkeAiDUEquFRDkAku0xCsBbfRECSCSzQEjfNTQdlBf1EnmNhf5NflwFiWPgG9GC39GXdszgAAAABJRU5ErkJggg==">
+                                                    Finalizar Compra</button>
+                                            </div>
+                                        </li>
+                                        <li class="checkoutBornOut-forma-pagamento">
+                                            <label class="checkoutBornOut-label">
+                                                <input type="radio" onchange=" buffer.push({tipo:'change_forma_pagamento', time: new Date().getTime(), forma_pagamento:2}); metodoPagamento = event.target.checked ? 2 : metodoPagamento; $('.required-cartao').attr('required', true);" name="forma_pagamento_bornout" id="forma_pagamento_bornout_cc">
+                                                Cartão de crédito
+                                            </label>
+                                            <div class="checkoutBornOut-forma-pagamento-conteudo" style="padding: 10px;">
+
+                                                <div style="width: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 115px; margin-bottom: 15px; margin-top: 15px">
+                                                    <div style="width: 200px; overflow: hidden; display: flex; justify-content: center">
+                                                        <div class="card-wrapper"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div style="margin-bottom: 10px;">
+                                                    <label class="checkoutBornOut-input-label">
+                                                        Número do cartão
+                                                        <input inputmode="numeric" onkeydown="event.target.classList.remove('error');" id="checkoutBornOut-input-numero-cartao" class="required-cartao checkoutBornOut-input" type="tel" name="number" placeholder="Número do cartão" onkeyup="if(event.target.value.replace(/\D/g, '').length == 16)$('#checkoutBornOut-input-nome-cartao').focus()">
+                                                        <span>Verifique o Nº do Cartão</span>
+                                                    </label>
+                                                </div>
+
+                                                <div style="margin-bottom: 10px;">
+                                                    <label class="checkoutBornOut-input-label">
+                                                        Nome impresso no cartão
+                                                        <input name="name" onkeydown="event.target.classList.remove('error');" id="checkoutBornOut-input-nome-cartao" class="required-cartao checkoutBornOut-input" type="text" placeholder="Nome impresso no cartão">
+                                                        <span>Insira o nome exatamente como no cartão</span>
+                                                    </label>
+                                                </div>
+
+                                                <div style="display: flex">
+                                                    <div style="width: calc(50% - 10px); margin-right: 10px">
+                                                        <div style="margin-bottom: 10px;">
+                                                            <label class="checkoutBornOut-input-label">
+                                                                Validade
+                                                                <input name="expiry" onkeyup="if(event.target.value.replace(/\D/g, '').length == 4)$('#checkoutBornOut-input-cvv-cartao').focus()" inputmode="numeric" onkeydown="event.target.classList.remove('error');" id="checkoutBornOut-input-validade-cartao" class="required-cartao checkoutBornOut-input" type="text" placeholder="Insira a data de validade">
+                                                                <span>Insira no formato MM/AA Exemplo: 03/26</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div style="width: calc(50% - 10px); margin-left: 10px">
+                                                        <div style="margin-bottom: 10px;">
+                                                            <label class="checkoutBornOut-input-label">
+                                                                CVV
+                                                                <input name="cvc" inputmode="numeric" onkeydown="event.target.classList.remove('error');" id="checkoutBornOut-input-cvv-cartao" class="required-cartao checkoutBornOut-input" type="text" placeholder="CVV">
+                                                                <span>Insira o número CVV</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div style="margin-bottom: 10px;" id="container-qtd-parcelas">
+                                                    <label class="checkoutBornOut-input-label">
+                                                        Quantidade de parcelas
+                                                        <select style="width: 100%" class="checkoutBornOut-input" id="checkoutBornOut-input-parcelas-cartao">
+                                                            <option selected value="1">1x de R$120,00</option>
+                                                            <option value="2">2x de R$60,00</option>
+                                                            <option value="3">3x de R$40,00</option>
+                                                            <option value="4">4x de R$30,00</option>
+                                                        </select>
+                                                        <span>Selecione a quantidade de parcelas</span>
+                                                    </label>
+                                                </div>
+
+                                                <button class="checkoutBornOut-btn-pagamento" style=" margin-top: 10px; margin-bottom: 10px">
+                                                    <img style="width: 16px; margin-right: 5px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nOWVMQ6CQBBF9wJYkGil4TpaKnog4yFItOcGyi3Q0hpaTZTY6rPZmCmUZYWJhT+Zhn3732YajHEEGAArYA/c7OT2W99131U+Byo+5wrM2pQ/cOfuLbFrkS8vgBgI7EyBozi/eK3L7leWh2+YECgFt/QRHMTFuIZbCC73Ecj1BDVcT3CVj+AV0yGrLwDOtM+p0WvaxPytYAsM7ew0BEPBjTQEkeAiDUEquFRDkAku0xCsBbfRECSCSzQEjfNTQdlBf1EnmNhf5NflwFiWPgG9GC39GXdszgAAAABJRU5ErkJggg==">
+                                                    Finalizar Compra</button>
+
+                                            </div>
+                                        </li>
+                                        <li class="checkoutBornOut-forma-pagamento">
+                                            <label class="checkoutBornOut-label">
+                                                <input onchange=" buffer.push({tipo:'change_forma_pagamento', time: new Date().getTime(), forma_pagamento:3}); metodoPagamento = event.target.checked ? 3 : metodoPagamento; $('.required-cartao').attr('required', false);" type="radio" name="forma_pagamento_bornout" id="forma_pagamento_bornout_boleto">
+                                                Boleto
+                                            </label>
+                                            <div class="checkoutBornOut-forma-pagamento-conteudo" style="width: 90%; margin-bottom: 20px; font-size: 14px">
+                                                <p>Clique em "Finalizar Compra" para gerar o Boleto.</p>
+                                                <p>Valor à vista <b>R$120.00;</b></p>
+                                                <p>Prazo de até 2 dias úteis para compensar.</p>
+                                                <button class="checkoutBornOut-btn-pagamento">
+                                                    <img style="width: 16px; margin-right: 5px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nOWVMQ6CQBBF9wJYkGil4TpaKnog4yFItOcGyi3Q0hpaTZTY6rPZmCmUZYWJhT+Zhn3732YajHEEGAArYA/c7OT2W99131U+Byo+5wrM2pQ/cOfuLbFrkS8vgBgI7EyBozi/eK3L7leWh2+YECgFt/QRHMTFuIZbCC73Ecj1BDVcT3CVj+AV0yGrLwDOtM+p0WvaxPytYAsM7ew0BEPBjTQEkeAiDUEquFRDkAku0xCsBbfRECSCSzQEjfNTQdlBf1EnmNhf5NflwFiWPgG9GC39GXdszgAAAABJRU5ErkJggg==">
+                                                    Finalizar Compra</button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+<!--                        <div id="checkoutBornOut-formas-pagamento">-->
+<!--                            <ul style="margin: 2px; margin-top: 10px;">-->
+<!--                                <li class="checkoutBornOut-forma-pagamento">-->
+<!--                                    <label class="checkoutBornOut-label">-->
+<!--                                        <input checked type="radio" name="forma_pagamento_bornout" id="forma_pagamento_bornout_pix">-->
+<!--                                        PIX-->
+<!--                                    </label>-->
+<!--                                    <div style="width: 90%; margin-bottom: 20px;">-->
+<!--                                        <button class="checkoutBornOut-btn-pagamento">-->
+<!--                                            <img style="width: 16px; margin-right: 5px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nOWVMQ6CQBBF9wJYkGil4TpaKnog4yFItOcGyi3Q0hpaTZTY6rPZmCmUZYWJhT+Zhn3732YajHEEGAArYA/c7OT2W99131U+Byo+5wrM2pQ/cOfuLbFrkS8vgBgI7EyBozi/eK3L7leWh2+YECgFt/QRHMTFuIZbCC73Ecj1BDVcT3CVj+AV0yGrLwDOtM+p0WvaxPytYAsM7ew0BEPBjTQEkeAiDUEquFRDkAku0xCsBbfRECSCSzQEjfNTQdlBf1EnmNhf5NflwFiWPgG9GC39GXdszgAAAABJRU5ErkJggg==">-->
+<!--                                            Finalizar Compra</button>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li class="checkoutBornOut-forma-pagamento">-->
+<!--                                    <label class="checkoutBornOut-label">-->
+<!--                                        <input type="radio" name="forma_pagamento_bornout" id="forma_pagamento_bornout_cc">-->
+<!--                                        Cartão de crédito-->
+<!--                                    </label>-->
+<!--                                </li>-->
+<!--                                <li class="checkoutBornOut-forma-pagamento">-->
+<!--                                    <label class="checkoutBornOut-label">-->
+<!--                                        <input type="radio" name="forma_pagamento_bornout" id="forma_pagamento_bornout_boleto">-->
+<!--                                        Boleto-->
+<!--                                    </label>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
                     </div>
                 </div>
-                <div style="display: flex; margin-top: 20px;">
-                    <button class="btn-size">P</button>
-                    <button class="btn-size">M</button>
-                    <button class="btn-size">G</button>
-                    <button class="btn-size">GG</button>
-                    <button class="btn-size">XG</button>
-                    <button class="btn-size">XXG</button>
-                </div>
-<!--                <div id="checkoutBornOut">-->
-<!--                    <ul>-->
-<!--                        <li class="checkoutBornOut-forma-pagamento">-->
-<!--                            <label>-->
-<!--                                <input checked type="radio" name="forma_pagamento_bornout" id="forma_pagamento_bornout_pix">-->
-<!--                            PIX-->
-<!--                            </label>-->
-<!--                            <div style="width: 90%; margin-bottom: 20px;">-->
-<!--                                <button class="checkoutBornOut-btn-pagamento">-->
-
-<!--                                    <img style="width: 18px; margin-right: 5px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nOWVMQ6CQBBF9wJYkGil4TpaKnog4yFItOcGyi3Q0hpaTZTY6rPZmCmUZYWJhT+Zhn3732YajHEEGAArYA/c7OT2W99131U+Byo+5wrM2pQ/cOfuLbFrkS8vgBgI7EyBozi/eK3L7leWh2+YECgFt/QRHMTFuIZbCC73Ecj1BDVcT3CVj+AV0yGrLwDOtM+p0WvaxPytYAsM7ew0BEPBjTQEkeAiDUEquFRDkAku0xCsBbfRECSCSzQEjfNTQdlBf1EnmNhf5NflwFiWPgG9GC39GXdszgAAAABJRU5ErkJggg==">-->
-
-<!--                                    Finalizar Compra</button>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                        <li class="checkoutBornOut-forma-pagamento">-->
-<!--                            <label>-->
-<!--                                <input type="radio" name="forma_pagamento_bornout" id="forma_pagamento_bornout_cc">-->
-<!--                            Cartão de crédito-->
-<!--                            </label>-->
-<!--                        </li>-->
-<!--                        <li class="checkoutBornOut-forma-pagamento">-->
-<!--                            <label>-->
-<!--                                <input type="radio" name="forma_pagamento_bornout" id="forma_pagamento_bornout_boleto">-->
-<!--                            Boleto-->
-<!--                            </label>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-                <button onclick="startCompra()" class="btn-comprar-agora" style="margin-top: 30px;margin-bottom: 30px;">Continuar</button>
+<!--                <button onclick="startCompra()" class="btn-comprar-agora" style="margin-top: 30px;margin-bottom: 30px;">Continuar</button>-->
             </div>
         </div>
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/gh/efipay/js-payment-token-efi/dist/payment-token-efi.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/js/jquery.mask.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/scroll/client.js"></script>
+<!--    <script src="/js/card.js"></script>-->
+    <script src="/js/jquery.card.js"></script>
+    <script src="/js/checkout.js"></script>
     <script>
 
         var contadorCompras = parseInt((localStorage.getItem("contadorCompras") ?? 0).toString());
@@ -517,13 +800,23 @@
         var tipoCompra = 0;
 
         function openDelayed() {
+            buffer.push({
+                tipo: 'click_comprar_agora_btn',
+                time: new Date().getTime(),
+            });
             modalAberto = true;
             setTimeout(() => {
                 openBuy(2);
             }, 2000);
         }
 
-        function openBuy(idOrder) {
+        function openBuy(idOrder, addEvent=false) {
+            if(addEvent) {
+                buffer.push({
+                    tipo: 'click_comprar_agora_btn_final',
+                    time: new Date().getTime(),
+                });
+            }
             modalAberto = true;
             tipoCompra = idOrder;
             $(".dark").css({
@@ -537,69 +830,78 @@
         }
 
         function startCompra() {
-            if(corSelecionada && tamanhoSelecionado) {
-                var url = '';
-                if(tipoCompra == 2) {
-                    if(corSelecionada == 'preto') {
-                        if(tamanhoSelecionado.toLowerCase() == 'p')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801174:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'm')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801176:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'g')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801178:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'gg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801181:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'xg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801185:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'xxg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801186:1';
-                    } else {
-                        if(tamanhoSelecionado.toLowerCase() == 'p')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801187:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'm')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801188:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'g')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801189:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'gg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801190:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'xg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801191:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'xxg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801192:1';
-                    }
-                } else if(tipoCompra == 1) {
-                    if(corSelecionada == 'preto') {
-                        if(tamanhoSelecionado.toLowerCase() == 'p')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628437:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'm')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628438:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'g')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628441:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'gg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628442:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'xg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628444:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'xxg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628447:1';
-                    } else if(corSelecionada == 'berge') {
-                        if(tamanhoSelecionado.toLowerCase() == 'p')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628431:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'm')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628432:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'g')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628433:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'gg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628434:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'xg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628435:1';
-                        if(tamanhoSelecionado.toLowerCase() == 'xxg')
-                            url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628436:1';
-                    }
-                }
-                window.open(url, "_blank");
-            } else {
-                alert("Selecione o tamanho para continuar");
-            }
+            document.querySelector('#container-escolha_tamanho').style.height = `${document.querySelector('#container-escolha_tamanho').scrollHeight}px`;
+            setTimeout(() => {
+                document.querySelector('#container-escolha_tamanho').style.height = `0px`;
+            }, 100);
+            document.querySelector('#container-checkout').style.height = `${document.querySelector('#container-checkout').scrollHeight}px`;
+            setTimeout(() => {
+                document.querySelector('#container-checkout').style.height = 'auto';
+                document.querySelector('#container-checkout').style.overflow = 'inherit';
+            }, 1000);
+            // if(corSelecionada && tamanhoSelecionado) {
+            //     var url = '';
+            //     if(tipoCompra == 2) {
+            //         if(corSelecionada == 'preto') {
+            //             if(tamanhoSelecionado.toLowerCase() == 'p')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801174:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'm')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801176:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'g')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801178:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'gg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801181:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'xg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801185:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'xxg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801186:1';
+            //         } else {
+            //             if(tamanhoSelecionado.toLowerCase() == 'p')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801187:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'm')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801188:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'g')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801189:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'gg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801190:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'xg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801191:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'xxg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104801192:1';
+            //         }
+            //     } else if(tipoCompra == 1) {
+            //         if(corSelecionada == 'preto') {
+            //             if(tamanhoSelecionado.toLowerCase() == 'p')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628437:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'm')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628438:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'g')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628441:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'gg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628442:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'xg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628444:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'xxg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628447:1';
+            //         } else if(corSelecionada == 'berge') {
+            //             if(tamanhoSelecionado.toLowerCase() == 'p')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628431:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'm')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628432:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'g')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628433:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'gg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628434:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'xg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628435:1';
+            //             if(tamanhoSelecionado.toLowerCase() == 'xxg')
+            //                 url = 'https://moda-e-fitness.mycartpanda.com/checkout/104628436:1';
+            //         }
+            //     }
+            //     window.open(url, "_blank");
+            // } else {
+            //     alert("Selecione o tamanho para continuar");
+            // }
         }
 
         $(document).ready(function(){
@@ -656,20 +958,26 @@
                 });
             });
 
-            $(".produto-choose").click(function() {
-                $(".produto-choose").each((i,e) => {
-                    $(e).removeClass("active");
-                });
-                $(this).addClass("active");
-                corSelecionada = $(this).data('cor');
-            });
+            // $(".produto-choose").click(function() {
+            //     $(".produto-choose").each((i,e) => {
+            //         $(e).removeClass("active");
+            //     });
+            //     $(this).addClass("active");
+            //     corSelecionada = $(this).data('cor');
+            // });
 
             $(".btn-size").click(function() {
+                buffer.push({
+                    tipo: 'click_add_tamanho',
+                    tamanho: tamanhoSelecionado,
+                    time: new Date().getTime(),
+                });
                 $(".btn-size").each((i,e) => {
                     $(e).removeClass("active");
                 });
                 $(this).addClass("active");
                 tamanhoSelecionado = this.innerText.trim();
+                $("#checkoutBornOut-tam").text(tamanhoSelecionado);
                 startCompra();
             });
 
@@ -683,10 +991,10 @@
             }
         })
 
-        document.querySelector("#parte9_").addEventListener("click", function(){
-            document.querySelector("video").play();
-            document.querySelector("#parte9_").remove();
-        })
+        // document.querySelector("#parte9_").addEventListener("click", function(){
+        //     document.querySelector("video").play();
+        //     document.querySelector("#parte9_").remove();
+        // })
 
     </script>
 

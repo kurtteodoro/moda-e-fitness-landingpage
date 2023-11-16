@@ -321,6 +321,12 @@ li {
     left: 0;
     backdrop-filter: blur(5px); /* Adicione um filtro de desfoque para o efeito de vidro embaçado */
     justify-content: center;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.dark .card {
+    margin-bottom: 35px;
 }
 
 .card {
@@ -352,7 +358,7 @@ li {
 }
 
 .produto-choose-img {
-    width: 100%;
+    width: 80%;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -455,4 +461,20 @@ li {
 
 #fulana-comprou.show {
     bottom: 30px !important;
+}
+
+#container-checkout, #checkoutBornOut-form-dados-entrega-2 {
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+#container-escolha_tamanho {
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+#checkoutBornOut-cartao-container {
+    display: none;
+    flex-direction: column;
 }
